@@ -27,6 +27,7 @@
     "typescript-eslint": "^7"
   },
   "dependencies": {
-    "posthog-js": "^1.261.0"
+    "posthog-js": "^1.261.0",
+    "posthog-node": "^5.8.1"
   }
 }

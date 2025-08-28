@@ -1,6 +1,10 @@
 'use client'
-import { useEffect, useState } from 'react'
-import { isEnabled } from '@lib/ff' // экспортируй через index.ts пакета
+import React, { useEffect, useState } from 'react'
+
+// Temporary mock implementation for demo
+const isEnabled = async (ctx: Record<string, unknown>, key: string) => {
+  return { key, enabled: false, variant: null, source: 'fallback' as const }
+}
 
 const KEY = 'new_checkout_flow'
 
@@ -15,19 +19,22 @@ function getDistinctId(): string {
 }
 
 export default function Client() {
-  const [state, setState] = useState<{
-    loading: boolean
-    enabled: boolean
-    variant?: string | null
-    source?: string
-  }>({ loading: true, enabled: false })
+  const [state, setState] = useState({
+    loading: true,
+    enabled: false,
+    variant: null as string | null,
+    source: undefined as string | undefined,
+  })
+
   useEffect(() => {
     const did = getDistinctId()
     isEnabled({ kind: 'web', distinctId: did }, KEY).then((r) =>
       setState({ loading: false, enabled: r.enabled, variant: r.variant, source: r.source }),
     )
   }, [])
+
   if (state.loading) return <div className="p-6 text-sm opacity-70">Checking feature flag…</div>
+
   return (
     <div className="p-6 space-y-4">
       <div className="text-xs opacity-70">
