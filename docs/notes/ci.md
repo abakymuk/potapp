@@ -1,4 +1,5 @@
 # CI Workflow
+
 - Триггеры: PR→main, push→main
 - Стадии: install → lint → typecheck → build
 - Node 20.x, pnpm 9, кэш pnpm & Turbo

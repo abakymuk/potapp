@@ -2,9 +2,9 @@ name: CI
 
 on:
   pull_request:
-    branches: [ "main" ]
+    branches: ['main']
   push:
-    branches: [ "main" ] # чтобы не сломать main пушем
+    branches: ['main'] # чтобы не сломать main пушем
 
 concurrency:
   group: ci-${{ github.ref }} # отменять старые запуски для той же ветки
@@ -18,7 +18,7 @@ jobs:
     name: Node 20 / pnpm
     runs-on: ubuntu-latest
     env:
-      TURBO_TELEMETRY_DISABLED: "1"
+      TURBO_TELEMETRY_DISABLED: '1'
 
     steps:
       - name: Checkout
@@ -35,8 +35,8 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20.x"
-          cache: "pnpm"
+          node-version: '20.x'
+          cache: 'pnpm'
 
       - name: Cache pnpm store
         uses: actions/cache@v4
