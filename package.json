@@ -20,6 +20,7 @@
     "check:env": "node scripts/check-env.mjs",
     "check:rls": "node scripts/check-rls.mjs",
     "check:all": "pnpm check:fast && pnpm check:build && pnpm check:env && pnpm check:rls",
+    "db:seed": "tsx scripts/seed.ts",
     "polish:write": "pnpm format && pnpm lint --fix || true",
     "clean:all": "turbo run clean && rimraf .turbo",
     "fix": "pnpm polish:write && pnpm lint && pnpm typecheck",
@@ -33,6 +34,7 @@
   "devDependencies": {
     "@eslint/js": "^9.34.0",
     "@types/node": "^24.3.0",
+    "dotenv": "^17.2.1",
     "eslint": "^9",
     "eslint-config-prettier": "^9",
     "eslint-import-resolver-typescript": "^3",
@@ -41,6 +43,7 @@
     "lint-staged": "^16.1.5",
     "prettier": "^3",
     "rimraf": "^6.0.1",
+    "tsx": "^4.20.5",
     "turbo": "^2.0.6",
     "typescript": "^5.9.2",
     "typescript-eslint": "^7"
@@ -48,6 +51,7 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.56.0",
     "posthog-js": "^1.261.0",
-    "posthog-node": "^5.8.1"
+    "posthog-node": "^5.8.1",
+    "uuid": "^11.1.0"
   }
 }
