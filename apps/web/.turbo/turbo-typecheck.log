@@ -1,0 +1,5 @@
+
+
+> @app/web@0.0.0 typecheck /Users/abakymukmeta/potapp/apps/web
+> tsc -p tsconfig.json --noEmit
+

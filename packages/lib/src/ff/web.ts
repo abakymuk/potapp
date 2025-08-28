@@ -5,8 +5,8 @@ import type { FFResult } from './types'
 let initialized = false
 export function initWebPosthog() {
   if (initialized) return
-  const key = process.env.NEXT_PUBLIC_POSTHOG_KEY!
-  const host = process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com'
+  const key = process.env['NEXT_PUBLIC_POSTHOG_KEY']!
+  const host = process.env['NEXT_PUBLIC_POSTHOG_HOST'] || 'https://eu.i.posthog.com'
   if (!key) return
   posthog.init(key, { api_host: host, autocapture: false })
   initialized = true

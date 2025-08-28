@@ -1,7 +1,7 @@
 const decideCache = new Map<string, { until: number; value: boolean; variant?: string | null }>()
 
 const now = () => Date.now()
-const ttl = Number(process.env.FF_DECIDE_TTL_MS || 60000)
+const ttl = Number(process.env['FF_DECIDE_TTL_MS'] || 60000)
 
 type DecideResp = { featureFlags?: Record<string, boolean | string>; }
 
