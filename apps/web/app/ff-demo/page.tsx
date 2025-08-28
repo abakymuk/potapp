@@ -1,4 +1,6 @@
 // app/ff-demo/page.tsx
+import React from 'react'
+
 import Client from './client'
 
 export default function Page() {

@@ -1,9 +1,7 @@
 'use client' // Error boundaries must be Client Components
 
-import NextError from 'next/error'
 import posthog from 'posthog-js'
-import { useEffect } from 'react'
-
+import React, { useEffect } from 'react'
 
 export default function GlobalError({
   error,
@@ -20,8 +18,10 @@ export default function GlobalError({
     // global-error must include html and body tags
     <html>
       <body>
-        {/* `NextError` is the default Next.js error page component */}
-        <NextError statusCode={0} />
+        <div className="flex min-h-screen flex-col items-center justify-center">
+          <h2 className="text-2xl font-bold mb-4">Что-то пошло не так!</h2>
+          <p className="text-gray-600 mb-4">Произошла критическая ошибка</p>
+        </div>
       </body>
     </html>
   )
