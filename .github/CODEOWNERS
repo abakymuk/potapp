@@ -1,0 +1,16 @@
+# Глобальный владелец (замени на свой GitHub username или команду)
+* @abakymuk
+
+# Apps
+/apps/web/**      @abakymuk
+/apps/worker/**   @abakymuk
+
+# Packages
+/packages/ui/**         @abakymuk
+/packages/contracts/**  @abakymuk
+/packages/db/**         @abakymuk
+/packages/lib/**        @abakymuk
+
+# Документация и конфигурация
+/docs/**                @abakymuk
+.github/**              @abakymuk
