@@ -1,0 +1,2 @@
+# Форматируем только staged файлы
+pnpm exec lint-staged
