@@ -1,4 +1,5 @@
-import type { CloudEvent } from '@potlucky/contracts'
+// Temporary fix for CI - using relative import
+import type { CloudEvent } from '../../../packages/contracts/src/index'
 
 import { processEvent } from '@/utils/processor'
 
