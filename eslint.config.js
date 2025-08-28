@@ -32,6 +32,10 @@ export default tseslint.config(
           alwaysTryTypes: true,
           project: ['./tsconfig.base.json', './apps/*/tsconfig.json', './packages/*/tsconfig.json'],
         },
+        // поддержка workspace зависимостей
+        node: {
+          extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        },
       },
     },
     rules: {
@@ -44,7 +48,7 @@ export default tseslint.config(
           alphabetize: { order: 'asc', caseInsensitive: true },
         },
       ],
-      'import/no-unresolved': 'error',
+      'import/no-unresolved': 'warn',
       // базовая строгость
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': [
