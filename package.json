@@ -13,7 +13,13 @@
     "lint": "eslint .",
     "format": "prettier -w .",
     "format:check": "prettier -c .",
-    "typecheck": "turbo run typecheck"
+    "typecheck": "turbo run typecheck",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,json,md,css,scss,yml,yaml}": [
+      "prettier -w"
+    ]
   },
   "devDependencies": {
     "@eslint/js": "^9.34.0",
@@ -22,6 +28,8 @@
     "eslint-config-prettier": "^9",
     "eslint-import-resolver-typescript": "^3",
     "eslint-plugin-import": "^2",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.5",
     "prettier": "^3",
     "turbo": "^2.0.6",
     "typescript": "^5.9.2",
