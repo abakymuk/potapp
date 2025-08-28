@@ -1,0 +1,5 @@
+
+
+> @potlucky/db@0.0.0 build /Users/abakymukmeta/potapp/packages/db
+> tsc -p tsconfig.json
+

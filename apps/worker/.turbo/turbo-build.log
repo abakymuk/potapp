@@ -1,0 +1,5 @@
+
+
+> @app/worker@0.0.0 build /Users/abakymukmeta/potapp/apps/worker
+> tsc -p tsconfig.json
+

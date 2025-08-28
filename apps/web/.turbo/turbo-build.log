@@ -1,0 +1,5 @@
+
+
+> @app/web@0.0.0 build /Users/abakymukmeta/potapp/apps/web
+> tsc -p tsconfig.json
+

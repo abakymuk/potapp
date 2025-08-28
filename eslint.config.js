@@ -1,0 +1,60 @@
+// eslint.config.js
+import js from '@eslint/js'
+import prettier from 'eslint-config-prettier'
+import importPlugin from 'eslint-plugin-import'
+import tseslint from 'typescript-eslint'
+
+export default tseslint.config(
+  js.configs.recommended,
+  ...tseslint.configs.recommended, // базовые TS-правила без type-aware
+  {
+    name: 'base',
+    files: ['**/*.ts', '**/*.tsx', '**/*.js'],
+    ignores: [
+      '**/node_modules/**',
+      '**/dist/**',
+      '**/.next/**',
+      '**/build/**',
+      '**/.vercel/**',
+      '**/.turbo/**',
+    ],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+    },
+    plugins: {
+      import: importPlugin,
+    },
+    settings: {
+      'import/resolver': {
+        // поддержка ts-paths в монорепо
+        typescript: {
+          alwaysTryTypes: true,
+          project: ['./tsconfig.base.json', './apps/*/tsconfig.json', './packages/*/tsconfig.json'],
+        },
+      },
+    },
+    rules: {
+      // импорт-гигиена
+      'import/order': [
+        'error',
+        {
+          'newlines-between': 'always',
+          groups: [['builtin', 'external'], ['internal'], ['parent', 'sibling', 'index']],
+          alphabetize: { order: 'asc', caseInsensitive: true },
+        },
+      ],
+      'import/no-unresolved': 'error',
+      // базовая строгость
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+      ],
+      '@typescript-eslint/consistent-type-imports': ['warn', { prefer: 'type-imports' }],
+      // стиль делегируем Prettier
+    },
+  },
+  // всегда последним — отключает конфликты с Prettier
+  prettier,
+)

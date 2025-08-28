@@ -1,0 +1,14 @@
+
+
+> @potlucky/lib@0.0.0 typecheck /Users/abakymukmeta/potapp/packages/lib
+> tsc -p tsconfig.json --noEmit
+
+[96msrc/index.ts[0m:[93m1[0m:[93m32[0m - [91merror[0m[90m TS2307: [0mCannot find module '@potlucky/contracts' or its corresponding type declarations.
+
+[7m1[0m import { helloContracts } from '@potlucky/contracts'
+[7m [0m [91m                               ~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+Found 1 error in src/index.ts[90m:1[0m
+
+[41m[30m ELIFECYCLE [39m[49m [31mCommand failed with exit code 2.[39m
