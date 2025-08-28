@@ -5,3 +5,6 @@ export const helloLib = () => `lib-ready with ${helloContracts()}`
 // Export feature flags
 export { isEnabled } from './ff'
 export type { FFContext, FFResult } from './ff/types'
+
+// Export realtime utilities
+export * from './realtime/orders'
