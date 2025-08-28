@@ -15,9 +15,6 @@ const required = new Set([
   'SUPABASE_URL',
   'SUPABASE_ANON_KEY',
   'SUPABASE_SERVICE_ROLE',
-  // CF/Workers
-  'CF_ACCOUNT_ID',
-  'CF_PROJECT_NAME',
 ])
 const example = fs.readFileSync(EXAMPLE, 'utf8')
 const declared = new Set([...example.matchAll(/^([A-Z0-9_]+)=/gm)].map((m) => m[1]))

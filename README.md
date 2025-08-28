@@ -42,8 +42,7 @@ pnpm check:all
 ```
 potapp/
 ├── apps/
-│   ├── web/          # Next.js приложение
-│   └── worker/       # Cloudflare Worker
+│   └── web/          # Next.js приложение
 ├── packages/
 │   ├── contracts/    # Общие типы
 │   ├── db/          # База данных
@@ -57,7 +56,7 @@ potapp/
 - **TypeScript** - типизация
 - **Turborepo** - монорепозиторий
 - **Next.js** - веб-приложение
-- **Cloudflare Workers** - серверные функции
+
 - **PostHog** - аналитика и feature flags
 - **ESLint + Prettier** - качество кода
 - **Husky** - Git hooks
