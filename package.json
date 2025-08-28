@@ -46,6 +46,7 @@
     "typescript-eslint": "^7"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.56.0",
     "posthog-js": "^1.261.0",
     "posthog-node": "^5.8.1"
   }
