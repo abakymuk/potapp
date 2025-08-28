@@ -1,4 +1,5 @@
 # Feature Flags (PostHog)
+
 - Веб: posthog-js, identify(distinctId), reloadFeatureFlagsAsync
 - Сервер/Worker: Decide API через fetch, TTL кэш (env FF_DECIDE_TTL_MS)
 - Env: NEXT_PUBLIC_POSTHOG_KEY, NEXT_PUBLIC_POSTHOG_HOST, POSTHOG_PROJECT_API_KEY, POSTHOG_HOST

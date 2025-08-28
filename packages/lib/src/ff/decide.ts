@@ -3,7 +3,7 @@ const decideCache = new Map<string, { until: number; value: boolean; variant?: s
 const now = () => Date.now()
 const ttl = Number(process.env['FF_DECIDE_TTL_MS'] || 60000)
 
-type DecideResp = { featureFlags?: Record<string, boolean | string>; }
+type DecideResp = { featureFlags?: Record<string, boolean | string> }
 
 export async function decideIsEnabled(
   host: string,
@@ -11,11 +11,12 @@ export async function decideIsEnabled(
   distinctId: string,
   key: string,
   personProps?: Record<string, unknown>,
-  groups?: Record<string, string>
+  groups?: Record<string, string>,
 ) {
   const ck = `${host}:${key}:${distinctId}`
   const hit = decideCache.get(ck)
-  if (hit && hit.until > now()) return { key, enabled: !!hit.value, variant: hit.variant ?? null, source: 'cache' as const }
+  if (hit && hit.until > now())
+    return { key, enabled: !!hit.value, variant: hit.variant ?? null, source: 'cache' as const }
 
   const url = `${host.replace(/\/$/, '')}/decide/`
   const body = {
@@ -26,7 +27,11 @@ export async function decideIsEnabled(
     // Примечание: можно добавить 'v' для версии флагов/вариантов.
   }
   try {
-    const res = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    })
     if (!res.ok) throw new Error(`Decide ${res.status}`)
     const json = (await res.json()) as DecideResp
     const value = json.featureFlags?.[key]

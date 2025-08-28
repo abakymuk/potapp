@@ -18,6 +18,7 @@ export default tseslint.config(
       '*.spec.ts',
       '*.spec.tsx',
       '**/dist/**',
+      '**/dist/**',
     ],
     name: 'base',
     files: ['**/*.ts', '**/*.tsx', '**/*.js'],

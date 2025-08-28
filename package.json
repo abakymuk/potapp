@@ -14,7 +14,16 @@
     "format": "prettier -w .",
     "format:check": "prettier -c .",
     "typecheck": "turbo run typecheck",
-    "prepare": "husky"
+    "prepare": "husky",
+    "check:fast": "pnpm format:check && pnpm lint && pnpm typecheck",
+    "check:build": "pnpm build",
+    "check:env": "node scripts/check-env.mjs",
+    "check:rls": "node scripts/check-rls.mjs",
+    "check:all": "pnpm check:fast && pnpm check:build && pnpm check:env && pnpm check:rls",
+    "polish:write": "pnpm format && pnpm lint --fix || true",
+    "clean:all": "turbo run clean && rimraf .turbo",
+    "fix": "pnpm polish:write && pnpm lint && pnpm typecheck",
+    "audit:info": "pnpm audit || true"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx,json,md,css,scss,yml,yaml}": [
@@ -31,6 +40,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^16.1.5",
     "prettier": "^3",
+    "rimraf": "^6.0.1",
     "turbo": "^2.0.6",
     "typescript": "^5.9.2",
     "typescript-eslint": "^7"
