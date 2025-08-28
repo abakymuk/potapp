@@ -1,4 +1,5 @@
 import posthog from 'posthog-js'
+
 import type { FFResult } from './types'
 
 let initialized = false
@@ -16,7 +17,7 @@ export async function webIsEnabled(key: string, distinctId: string): Promise<FFR
   if (!distinctId) return { key, enabled: false, variant: null, source: 'fallback' }
   posthog.identify(distinctId)
   // posthog-js синхронно/асинхронно подтянет флаги; ждём актуализацию:
-  await posthog.reloadFeatureFlagsAsync?.()
+  await posthog.reloadFeatureFlags?.()
   const variant = (posthog.getFeatureFlag?.(key) as string | boolean | undefined) ?? false
   const enabled = typeof variant === 'string' ? true : !!variant
   return { key, enabled, variant: typeof variant === 'string' ? variant : null, source: 'client' }

@@ -1,10 +1,12 @@
+/* eslint-env node */
+/* eslint-disable no-undef */
 export function register() {
   // No-op for initialization
 }
 
-export const onRequestError = async (err, request, context) => {
+export const onRequestError = async (err, request, _context) => {
   if (process.env.NEXT_RUNTIME === 'nodejs') {
-    const { getPostHogServer } = require('./app/posthog-server')
+    const { getPostHogServer } = await import('./app/posthog-server')
     const posthog = await getPostHogServer()
 
     let distinctId = null
@@ -18,6 +20,7 @@ export const onRequestError = async (err, request, context) => {
           const postHogData = JSON.parse(decodedCookie)
           distinctId = postHogData.distinct_id
         } catch (e) {
+           
           console.error('Error parsing PostHog cookie:', e)
         }
       }

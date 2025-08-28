@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 
 // Temporary mock implementation for demo
-const isEnabled = async (ctx: Record<string, unknown>, key: string) => {
+const isEnabled = async (_ctx: Record<string, unknown>, key: string) => {
   return { key, enabled: false, variant: null, source: 'fallback' as const }
 }
 

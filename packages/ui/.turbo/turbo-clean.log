@@ -1,0 +1,5 @@
+
+
+> @potlucky/ui@0.0.0 clean /Users/abakymukmeta/potapp/packages/ui
+> rimraf dist || true
+

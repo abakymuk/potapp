@@ -1,0 +1,5 @@
+
+
+> @potlucky/db@0.0.0 clean /Users/abakymukmeta/potapp/packages/db
+> rimraf dist || true
+

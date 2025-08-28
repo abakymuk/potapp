@@ -8,16 +8,19 @@ export default tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended, // базовые TS-правила без type-aware
   {
+    ignores: [
+      'node_modules/**',
+      'dist/**',
+      '.build/**',
+      '.tmp/**',
+      '*.test.ts',
+      '*.test.tsx',
+      '*.spec.ts',
+      '*.spec.tsx',
+      '**/dist/**',
+    ],
     name: 'base',
     files: ['**/*.ts', '**/*.tsx', '**/*.js'],
-    ignores: [
-      '**/node_modules/**',
-      '**/dist/**',
-      '**/.next/**',
-      '**/build/**',
-      '**/.vercel/**',
-      '**/.turbo/**',
-    ],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
@@ -52,8 +55,11 @@ export default tseslint.config(
       // базовая строгость
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': [
-        'warn',
-        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+        },
       ],
       '@typescript-eslint/consistent-type-imports': ['warn', { prefer: 'type-imports' }],
       // стиль делегируем Prettier

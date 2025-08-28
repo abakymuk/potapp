@@ -1,6 +1,6 @@
 import { decideIsEnabled } from './decide'
-import { webIsEnabled } from './web'
 import type { FFContext, FFResult } from './types'
+import { webIsEnabled } from './web'
 
 export async function isEnabled(ctx: FFContext, key: string): Promise<FFResult> {
   if (ctx.kind === 'web') {
